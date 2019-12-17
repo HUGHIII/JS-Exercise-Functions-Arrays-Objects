@@ -15,7 +15,7 @@
 function addNumbers(num1, num2) {
   return num1 + num2;
 }
-
+console.log(addNumbers(1, 1));
 // ⭐️ Example Challenge end ⭐️
 
 
@@ -45,11 +45,11 @@ function makePersonObject(idparam, nameparam, emailparam) {
     id:idparam,
     name:nameparam,
     email:emailparam,
-  }
-  return PersonObject
+ } 
+  return PersonObject(``)
 }
 
-makePersonObject()
+console.log(makePersonObject(5,"leia", "leia@leia.com"));
 
 /**
  * ### Challenge `getName`
@@ -64,11 +64,9 @@ makePersonObject()
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(nameParam) {
-  const Name = {
-
-  }
-  return "hello, my name is " + Name
+function getName(Object) {
+  
+  return "hello, my name is " + Object.name
 }
 console.log("getName results:", getName({ id: 1, name: 'Leia', email: 'leia@leia.com' }))
 /**
@@ -198,6 +196,7 @@ function getCarInfoById(array, num) {
     }
 }
 }
+
 /**
  * ### Challenge `sortCarInventory`
  * 
