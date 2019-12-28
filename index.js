@@ -46,7 +46,7 @@ function makePersonObject(idparam, nameparam, emailparam) {
     name:nameparam,
     email:emailparam,
  } 
-  return PersonObject(``)
+  return PersonObject;
 }
 
 console.log(makePersonObject(5,"leia", "leia@leia.com"));
@@ -64,9 +64,9 @@ console.log(makePersonObject(5,"leia", "leia@leia.com"));
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(Object) {
+function getName(Objectparam) {
   
-  return "hello, my name is " + Object.name
+  return "hello, my name is " + Objectparam.name
 }
 console.log("getName results:", getName({ id: 1, name: 'Leia', email: 'leia@leia.com' }))
 /**
@@ -153,12 +153,12 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoByIndex(inventory, index) {
+function getCarInfoByIndex(inventory, indexTest) {
   // const the1st = inventory.find((item, index)=>{
   //   return index === 0
   // })
   // return `This is a  ${the1st.car_make} ${the1st.car_model}`
-  return `This is a ${inventory[index].car_make} ${inventory[index].car_model}`
+  return `This is a ${inventory[indexTest].car_make} ${inventory[indexTest].car_model}`
 }
 console.log("get car info", getCarInfoByIndex(inventory,5)) ;
 /**
@@ -196,6 +196,7 @@ function getCarInfoById(array, num) {
     }
 }
 }
+console.log(getCarInfoById(inventory,5));
 
 /**
  * ### Challenge `sortCarInventory`
@@ -207,11 +208,19 @@ function getCarInfoById(array, num) {
 */
 function sortCarInventory(inventory) {
   /* code here */
-  return inventory.sort(function(a, b){
+   return inventory.sort(function(a,b){
+     if (a.car_model > b.car_model){return 1;}
+     if (a.car_model < b.car_model){return -1;}
+     else {
+       return 0;
+     }
+   }
+   );
 
-  }
-}
+ }
+  console.log(sortCarInventory(inventory));
 
+  
 /**
  * ### Challenge `getModelYears`
  * 
@@ -223,13 +232,14 @@ function sortCarInventory(inventory) {
 */
 function getModelYears(inventory) {
   /* code here */
-  const newYear = []
+  const modelYear = []
   for (let i =0; i < inventory.length; i++){
-    newYear.push(inventory[i].car_year)
+    modelYear.push(inventory[i].car_year)
   }
   
-  return newYear;
+  return modelYear;
 }
+console.log(getModelYears(inventory));
 
 /**
  * ### Challenge `getOlderCars`
@@ -251,8 +261,9 @@ function getOlderCars(inventory, year) {
         cars.push(inventory[i])}
 
     }
-  
+  return cars;
 }
+console.log(getOlderCars(inventory, 1990));
 
 /**
  * ### Challenge `getGermanCars`
@@ -265,13 +276,13 @@ function getOlderCars(inventory, year) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(array) {
-  const germanCars = [];
-  for(let i = 0; i < array.length; i++){
-    if  
-  }
+// function getGermanCars(array) {
+//   const germanCars = [];
+//   for(let i = 0; i < array.length; i++)
+//     if  
+  
 
-}
+// }
 
 /**
  * ### Challenge refactor to arrow functions
